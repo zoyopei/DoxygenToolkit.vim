@@ -547,6 +547,13 @@ function! <SID>DoxygenBlockFunc()
 endfunction
 
 
+function! <SID>DoxygenCommentVar()
+    exec "normal A/**<*/"
+    exec "normal h"
+    exec "startinsert"
+endfunction
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Main comment function for class, attribute, function...
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1138,6 +1145,7 @@ endfunction
 """"""""""""""""""""""""""
 " Shortcuts...
 """"""""""""""""""""""""""
+command! -nargs=0 Doxv :call <SID>DoxygenCommentVar()
 command! -nargs=0 Dox :call <SID>DoxygenCommentFunc()
 command! -nargs=0 DoxLic :call <SID>DoxygenLicenseFunc()
 command! -nargs=0 DoxAuthor :call <SID>DoxygenAuthorFunc()
